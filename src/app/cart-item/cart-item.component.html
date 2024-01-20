@@ -1,0 +1,47 @@
+<a href="#" class="shp-ca" data-toggle="dropdown">
+   <div class="s-bag-1">
+     <i class="icon-bag"></i>
+   </div>
+   <div class="s-cart-pan">
+     <div class="s-bag-2">
+       <span class="dd-products-count">{{totals.totalQuantity}}</span> item(s) / <span class="active dd-products-price">${{totals.totalAmount}}</span>
+     </div>
+   </div>
+ </a>
+ <div class="dropdown-menu dropdown-menu-right larger text-left" role="menu">
+   <span class="dropdown-triangle-up"></span>
+   <a href="#" class="dd-close-btn"><i class="icon_close"></i></a>
+   <div class="dropdown-head">
+     <h4 class="pull-left">{{totals.totalQuantity}} items in the shopping bag</h4>
+   </div>
+   <div class="dd-wrapper">
+     <div class="dd-list-empty">There is no product in shopping cart!</div>
+     <div id="cart-product-group" class="dropdown-product-list">
+       <div class="dd-product-group" id="pr5" *ngFor="let item of cartItems">
+         <div class="dd-product-box pull-left">
+           <a href="product-page.html" title="{{item.name}}">
+             <img src="{{item.image}}" alt="{{item.name}}">
+           </a>
+         </div>
+         <div class="dd-product-desc pull-left">
+           <a class="title">{{item.name}}</a>
+           <div class="qty">{{item.quantity}} x <span class="active">${{item.discountPrice}}</span></div>
+           <a href="#" class="close-btn ddr"><i class="icon_close"></i></a>
+         </div>
+       </div>
+       <div class="text-center clear-all-btn">
+         <span class="cart-block-subtotal">
+           Cart Subtotal: ${{totals.totalAmount}}
+         </span>
+       </div>
+     </div>
+     <div class="row no-gutter">
+       <div class="col-xs-6">
+         <a routerLink="/home/cart-page" class="btn btn-md btn-third-col btn-w100">View Cart</a>
+       </div>
+       <div class="col-xs-6">
+         <a routerLink="/home/checkout"  class="btn btn-md btn-third-col btn-w100">Procced to Checkout</a>
+       </div>
+     </div>
+   </div>
+ </div>

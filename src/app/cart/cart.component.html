@@ -1,0 +1,208 @@
+   <!-- page body content begin -->
+   <div class="pg-body">
+      <div class="container">
+         <div class="row">
+            <div class="gap-60"></div>
+            <div class="col-md-8 col-xs-12">
+               <div class="table_block table-responsive mb-40" id="order-detail-content">
+                  <table class="table table-bordered" id="cart_summary">
+                     <thead>
+                        <tr>
+                           <th colspan="2" class="cart_product first_item">Product name</th>
+                           <th class="cart_unit item">Price</th>
+                           <th class="cart_quantity item">QUANTITY</th>
+                           <th class="cart_delete last_item">SUBTOTAL</th>
+                        </tr>
+                     </thead>
+                     <tfoot class="dd-list-empty"><tr><td colspan="5">There is no product in it!</td></tr></tfoot>
+                     <tbody class="dropdown-product-list">
+                        <tr class="cart_item first_item address_0 odd dd-product-group" *ngFor="let item of cartItems">
+                           <td class="cart_product">
+                              <a href="https://shop.azelab.com/product-page.html">
+                                 <img alt="Faded Short Sleeve T-shirts" src="{{item.images}}">
+                              </a>
+                           </td>
+                           <td class="cart_description">
+                              <p class="product-name">
+                                 <a href="https://shop.azelab.com/product-page.html">{{item.name}}</a>
+                              </p>
+                              <!-- <small>Size: <span>{{item}}</span></small>
+                              <small>Color: <span>Red</span></small>
+                              <small>Product Code: <span>{{item}}</span></small> -->
+                           </td>
+                           <td data-title="PRICE" class="cart_unit">
+                              <span class="price">{{item.discountPrice}}</span>
+                           </td>
+
+                           <td class="cart_quantity text-center">
+                              <div class="cart_quantity_button clrfix">
+                                 <a title="Subtract" (click)="decrementCartItem(item)" class="cart_quantity_down btn btn-default btn-minus" rel="nofollow">-</a>
+                                 <input type="text" [value]="item?.quantity" name="quantity" class="cart_quantity_input form-control grey count" autocomplete="off" size="2" disabled="">
+                                 <a title="Add" (click)="incrementCartItem(item)" class="cart_quantity_up btn btn-default btn-plus" rel="nofollow">+</a>
+                              </div>
+                           </td>
+                           <td class="subtotal text-center" data-title="SUBTOTAL">
+                              <a class="close-btn ddr" (click)="removeFromCart(item)"><i class="icon_close"></i></a>
+                              <p>$ {{item.quantity * item.discountPrice }}</p>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+            <div class="col-md-4 col-xs-12 pull-right">
+               <div class="row">
+                  <div class="container col-xs-12 cart-detail">
+                     <h6 class="gold-header">CART DETAIL</h6>
+                     <p class="info"><span class="pull-left col-xs-6">Cart Subtotal:</span><span class="pull-right col-xs-6 text-right">${{total.totalAmount}}</span></p>
+                     <p class="info"><span class="pull-left col-xs-6">Shipping:</span><span class="pull-right col-xs-6 text-right gray">Free Shipping</span></p>
+                     <p class="info total"><span class="pull-left col-xs-6">ORDER TOTAL:</span><span class="col-xs-6 pull-right text-right">${{total.totalAmount}}</span></p>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xs-12"><h6 class="gold-header">CALCULATE SHIPPING</h6></div>
+                  <div class="container col-xs-12">
+                     <div class="calc-shipping clearfix">
+                        <div class="required form-group col-xs-12">
+                           <select class="form-control s-styled hasCustomSelect" name="shipping_country" style="appearance: menulist-button; position: absolute; opacity: 0; height: 37px; font-size: 13px;">
+                              <option selected="" hidden="">Country</option>
+                              <option value="1">01</option>
+                              <option value="2">02</option>
+                              <option value="3">03</option>
+                              <option value="4">04</option>
+                              <option value="5">05</option>
+                              <option value="6">06</option>
+                              <option value="7">07</option>
+                              <option value="8">08</option>
+                              <option value="9">09</option>
+                              <option value="10">10</option>
+                              <option value="11">11</option>
+                              <option value="12">12</option>
+                              <option value="13">13</option>
+                              <option value="14">14</option>
+                              <option value="15">15</option>
+                              <option value="16">16</option>
+                              <option value="17">17</option>
+                              <option value="18">18</option>
+                              <option value="19">19</option>
+                              <option value="20">20</option>
+                              <option value="21">21</option>
+                              <option value="22">22</option>
+                              <option value="23">23</option>
+                              <option value="24">24</option>
+                              <option value="25">25</option>
+                              <option value="26">26</option>
+                              <option value="27">27</option>
+                              <option value="28">28</option>
+                              <option value="29">29</option>
+                              <option value="30">30</option>
+                              <option value="31">31</option>
+                           </select><span class="customSelect form-control s-styled hasCustomSelect" style="display: inline-block;"><span class="customSelectInner" style="width: 100%; display: inline-block;">Country</span></span>
+                        </div>
+                        <div class="required form-group col-xs-12">
+                           <select class="form-control s-styled hasCustomSelect" name="shipping_state" style="appearance: menulist-button; position: absolute; opacity: 0; height: 37px; font-size: 13px;">
+                              <option selected="" hidden="">Select state</option>
+                              <option value="1">01</option>
+                              <option value="2">02</option>
+                              <option value="3">03</option>
+                              <option value="4">04</option>
+                              <option value="5">05</option>
+                              <option value="6">06</option>
+                              <option value="7">07</option>
+                              <option value="8">08</option>
+                              <option value="9">09</option>
+                              <option value="10">10</option>
+                              <option value="11">11</option>
+                              <option value="12">12</option>
+                              <option value="13">13</option>
+                              <option value="14">14</option>
+                              <option value="15">15</option>
+                              <option value="16">16</option>
+                              <option value="17">17</option>
+                              <option value="18">18</option>
+                              <option value="19">19</option>
+                              <option value="20">20</option>
+                              <option value="21">21</option>
+                              <option value="22">22</option>
+                              <option value="23">23</option>
+                              <option value="24">24</option>
+                              <option value="25">25</option>
+                              <option value="26">26</option>
+                              <option value="27">27</option>
+                              <option value="28">28</option>
+                              <option value="29">29</option>
+                              <option value="30">30</option>
+                              <option value="31">31</option>
+                           </select><span class="customSelect form-control s-styled hasCustomSelect" style="display: inline-block;"><span class="customSelectInner" style="width: 100%; display: inline-block;">Select state</span></span>
+                        </div>
+                        <div class="required form-group col-xs-12">
+                           <select class="form-control s-styled hasCustomSelect" name="shipping_zip_code" style="appearance: menulist-button; position: absolute; opacity: 0; height: 37px; font-size: 13px;">
+                              <option selected="" hidden="">Postal zip code</option>
+                              <option value="1">01</option>
+                              <option value="2">02</option>
+                              <option value="3">03</option>
+                              <option value="4">04</option>
+                              <option value="5">05</option>
+                              <option value="6">06</option>
+                              <option value="7">07</option>
+                              <option value="8">08</option>
+                              <option value="9">09</option>
+                              <option value="10">10</option>
+                              <option value="11">11</option>
+                              <option value="12">12</option>
+                              <option value="13">13</option>
+                              <option value="14">14</option>
+                              <option value="15">15</option>
+                              <option value="16">16</option>
+                              <option value="17">17</option>
+                              <option value="18">18</option>
+                              <option value="19">19</option>
+                              <option value="20">20</option>
+                              <option value="21">21</option>
+                              <option value="22">22</option>
+                              <option value="23">23</option>
+                              <option value="24">24</option>
+                              <option value="25">25</option>
+                              <option value="26">26</option>
+                              <option value="27">27</option>
+                              <option value="28">28</option>
+                              <option value="29">29</option>
+                              <option value="30">30</option>
+                              <option value="31">31</option>
+                           </select><span class="customSelect form-control s-styled hasCustomSelect" style="display: inline-block;"><span class="customSelectInner" style="width: 100%; display: inline-block;">Postal zip code</span></span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-8 col-xs-12">
+               <div class="row">
+                  <form action="https://shop.azelab.com/shopping-cart.html?coupon=#" class="form-inline bottom-buttons">
+                     <div class="col-lg-6 col-xs-12">
+                        <div class="row">
+                           <div class="form-group col-xs-7 col-sm-8">
+                              <input type="text" id="couponCode" [(ngModel)]="couponCode" name="coupon" placeholder="Enter coupon" class="form-control placeholder-fix">
+                           </div>
+                           <div class="col-xs-5 col-sm-4">
+                              <button class="btn btn-md btn-third-col" (click)="applyPercentageDiscountCoupon()">APPLY</button>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-lg-6 col-xs-12">
+                        <div class="row">
+                           <div class="col-sm-5 col-xs-12">
+                              <button class="btn btn-md btn-third-col">UPDATE CART</button>
+                           </div>
+                           <div class="col-sm-7 col-xs-12">
+                              <button class="btn btn-md btn-sec-col" (click)="proceedToCheckout()">PROCEED TO CHECKOUT</button>
+                           </div>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+            </div>
+
+            <div class="gap-70 col-xs-12"></div>
+         </div>
+      </div>
+   </div> <!-- pg-body -->

@@ -1,0 +1,36 @@
+# deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fe-eshop-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fe-eshop
+  template:
+    metadata:
+      labels:
+        app: fe-eshop
+    spec:
+      containers:
+      - name: fe-eshop
+        image: gcr.io/eshop/fe-eshop:latest
+        ports:
+        - containerPort: 80
+
+---
+# service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: fe-eshop-service
+spec:
+  selector:
+    app: fe-eshop
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+  type: LoadBalancer
+  loadBalancerIP: 34.28.131.230

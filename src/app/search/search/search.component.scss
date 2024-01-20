@@ -1,0 +1,43 @@
+/* search.component.css */
+.separator {
+  color: #888; /* Adjust the color as needed */
+  font-weight: bold;
+}
+
+/* Make the separator unselectable */
+.separator {
+  pointer-events: none;
+}
+.result-list {
+  max-height: 300px; /* Set the maximum height for the list */
+  overflow-y: auto; /* Enable vertical scrollbar if content exceeds the max height */
+}
+ .search-results {
+   position: absolute;
+   top: 68%;
+   left: 0;
+   width: 100%;
+   border: 1px solid #ccc;
+   border-top: none;
+   border-radius: 0 0 4px 4px;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   background-color: #fff;
+   z-index: 99;
+ }
+ 
+ .search-results ul {
+   list-style-type: none;
+   padding: 0;
+   margin: 0;
+ }
+ 
+ .search-results li {
+   padding: 8px;
+   cursor: pointer;
+   line-height: 20px;
+ }
+ 
+ .search-results li:hover {
+   background-color: #f0f0f0;
+ }
+ 

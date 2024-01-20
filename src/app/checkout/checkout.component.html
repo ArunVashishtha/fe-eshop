@@ -1,0 +1,317 @@
+<!-- page body content begin -->
+<div class="pg-body">
+   <div class="container">
+      <div class="row">
+         <div class="container checkout-menu">
+            <a href="https://shop.azelab.com/checkout.html?checkbox=3" class="btn btn-yet-col col-sm-3 col-xs-12">ORDER COMPLETE</a>
+            <a href="https://shop.azelab.com/checkout.html?checkbox=3" class="btn btn-yet-col col-sm-3 col-xs-12">PAYMENT METHOD</a>
+            <a href="https://shop.azelab.com/checkout.html?checkbox=3" class="btn btn-yet-col col-sm-3 col-xs-12">BILLING &amp; SHIPPING</a>
+            <a href="https://shop.azelab.com/checkout.html?checkbox=3" class="btn btn-third-col col-sm-3 col-xs-12">CHECKOUT OPTION</a>
+         </div>
+      </div>
+      <div class="row">
+         <div class="you-order mobile-collapse col-md-5 col-xs-12 pull-right clearfix">
+            <div class="mobile-collapse-header">YOUR ORDER</div>
+
+            <div class="table_block table-responsive clearfix mobile-collapse-body" id="order-detail-content">
+
+               <div class="dd-list-empty">There is no product in it!</div>
+               <div class="dropdown-product-list">
+                  <table class="table" id="cart_summary">
+                     <tbody>
+                        <tr class="cart_item first_item address_0 odd dd-product-group" *ngFor="let item of cartItems">
+                           <td class="cart_product">
+                              <a href="https://shop.azelab.com/product-page.html">
+                                 <img alt="Faded Short Sleeve T-shirts" src="{{item.images}}">
+                              </a>
+                           </td>
+                           <td class="cart_description">
+                              <p class="product-name">
+                                 <a href="https://shop.azelab.com/product-page.html">{{item.name}}</a>
+                              </p>
+                              <div class="qty">{{item.quantity}} x <span>${{item.discountPrice}}</span></div>
+                              <!-- <small>Color: <span>Red</span></small>
+                              <small>Product Code: <span>12658472</span></small> -->
+                              <a class="close-btn ddr" href="https://shop.azelab.com/checkout.html?checkbox=3#"><i class="icon_close"></i></a>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+                  <div class="container col-xs-12 tfoot">
+                     <p class="row info"><span class="pull-left col-xs-6">Cart Subtotal:</span><span class="pull-right col-xs-6 text-right">${{totalAmount}}</span></p>
+                     <p class="row info"><span class="pull-left col-xs-6">Shipping:</span><span class="pull-right col-xs-6 text-right gray">Free Shipping</span></p>
+                     <p class="row info total"><span class="pull-left col-xs-6">ORDER TOTAL:</span><span class="col-xs-6 pull-right text-right">${{totalAmount}}</span></p>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-7 col-xs-12 pull-left">
+            <div id="accordion-order">
+               <div class="accordion-group panel">
+                  <a href="https://shop.azelab.com/checkout.html?checkbox=3#collapse-1" data-parent="#accordion-order" data-toggle="collapse" class="accordion-header collapsed">
+                     CHECKOUT OPTION
+                  </a>
+                  <div class="collapse" id="collapse-1" style="height: 0px;">
+                     <div class="accordion-body">
+                        <div class="row">
+                           <div class="col-md-6 col-xs-12">
+                              <form action="https://shop.azelab.com/checkout.html?checkbox=3#">
+                                 <h6>NEW CUSTOMER</h6>
+                                 <p>Register with us for future convenience</p>
+                                 <input type="checkbox" class="stl" value="2" name="checkbox" id="checkbox1">
+                                 <label class="stl checkbox" for="checkbox1"><span></span>Register Account</label><br>
+                                 <input type="checkbox" checked="checked" class="stl" value="3" name="checkbox" id="checkbox2">
+                                 <label class="stl checkbox" for="checkbox2"><span></span>Checkout us Guest</label><br>     
+                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,  eiusmod tempor incididunt ut labore et dolore magna aliqua. veniam, quis nostrud  nostrud exercitation laboris. </p>
+                                 <button type="submit" class="btn btn-third-col btn-md">CONTINUE</button>
+                              </form>
+                           </div>
+                           <div class="col-md-6 col-xs-12">
+                              <form action="https://shop.azelab.com/checkout.html?checkbox=3#">
+                                 <h6>REGISTERED CUSTOMER</h6>
+                                 <p>If you have an account with us, please log in.</p>
+                                 <div class="form-group">
+                                    <input type="email" placeholder="Enter your email *" class="placeholder-fix form-control" name="email">
+                                 </div>
+                                 <div class="form-group">
+                                    <input type="password" placeholder="Enter your password *" class="placeholder-fix form-control" name="password">
+                                 </div>
+                                 <input type="checkbox" checked="checked" class="stl" value="3" name="checkbox" id="checkbox3">
+                                 <label class="stl checkbox" for="checkbox3"><span></span>Remember Password</label><br>
+                                 <button class="btn btn-third-col btn-md" type="submit">LOGIN</button>
+                              </form>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="accordion-group panel">
+                  <a href="https://shop.azelab.com/checkout.html?checkbox=3#collapse-2" data-parent="#accordion-order" data-toggle="collapse" class="accordion-header collapsed">
+                     BILLING INFORMATION
+                  </a>
+                  <div class="collapse" id="collapse-2" style="height: 0px;">
+                     <div class="accordion-body">
+                        <div class="row">
+                           <div class="col-md-6 col-xs-12">
+                              <h6>PERSONAL DETAIL</h6><br>
+                              <div class="form-group">
+                                 <input type="text" placeholder="First Name *" class="placeholder-fix form-control" name="f_name">
+                              </div>
+                              <div class="form-group">
+                                 <input type="text" placeholder="Last Name *" class="placeholder-fix form-control" name="l_name">
+                              </div>
+                              <div class="form-group">
+                                 <input type="email" placeholder="E-mail Address *" class="placeholder-fix form-control" name="email">
+                              </div>
+                              <div class="form-group">
+                                 <input type="tel" placeholder="Phone *" class="placeholder-fix form-control" name="phone">
+                              </div>
+                              <div class="form-group">
+                                 <input type="text" placeholder="Company " class="placeholder-fix form-control" name="company">
+                              </div>
+                              <input type="checkbox" class="stl" value="2" name="checkbox" id="checkbox4">
+                              <label class="stl checkbox" for="checkbox4"><span></span>My dilivery and billing addresses are the same</label><br>
+                              <input type="checkbox" checked="checked" class="stl" value="3" name="checkbox" id="checkbox5">
+                              <label class="stl checkbox" for="checkbox5"><span></span>Ship a different address</label><br> 
+                           </div>
+                           <div class="col-md-6 col-xs-12">
+                              <h6>YOUR ADDRESS</h6><br>
+                              <div class="row">
+                                 <div class="required form-group col-xs-12">
+                                    <select class="form-control s-styled hasCustomSelect" name="billing-country" style="appearance: menulist-button; position: absolute; opacity: 0; height: 43px; font-size: 13px;">
+                                       <option selected="" hidden="">Country</option>
+                                       <option value="1">01</option>
+                                       <option value="2">02</option>
+                                       <option value="3">03</option>
+                                       <option value="4">04</option>
+                                       <option value="5">05</option>
+                                       <option value="6">06</option>
+                                       <option value="7">07</option>
+                                       <option value="8">08</option>
+                                       <option value="9">09</option>
+                                       <option value="10">10</option>
+                                       <option value="11">11</option>
+                                       <option value="12">12</option>
+                                       <option value="13">13</option>
+                                       <option value="14">14</option>
+                                       <option value="15">15</option>
+                                       <option value="16">16</option>
+                                       <option value="17">17</option>
+                                       <option value="18">18</option>
+                                       <option value="19">19</option>
+                                       <option value="20">20</option>
+                                       <option value="21">21</option>
+                                       <option value="22">22</option>
+                                       <option value="23">23</option>
+                                       <option value="24">24</option>
+                                       <option value="25">25</option>
+                                       <option value="26">26</option>
+                                       <option value="27">27</option>
+                                       <option value="28">28</option>
+                                       <option value="29">29</option>
+                                       <option value="30">30</option>
+                                       <option value="31">31</option>
+                                    </select><span class="customSelect form-control s-styled hasCustomSelect" style="display: inline-block;"><span class="customSelectInner" style="width: 100%; display: inline-block;">Country</span></span>
+                                 </div>
+                              </div>
+                              <div class="form-group">
+                                 <input type="text" placeholder="Town / City * " class="placeholder-fix form-control" name="city">
+                              </div>
+                              <div class="form-group">
+                                 <input type="text" placeholder="State / Province * " class="placeholder-fix form-control" name="state">
+                              </div>
+                              <div class="form-group">
+                                 <input type="text" placeholder="Postcode / Zip * " class="placeholder-fix form-control" name="zip_code">
+                              </div>
+                              <input type="checkbox" checked="checked" class="stl" value="3" name="checkbox" id="checkbox6">
+                              <label class="stl checkbox" for="checkbox6"><span></span>I have reed and agree to the <a href="https://shop.azelab.com/checkout.html?checkbox=3">Privacy Policy</a></label><br> 
+                              <button class="btn btn-third-col btn-md" type="submit">CONTINUE</button>
+                           </div>
+                           <div class="col-xs-12">
+                              <br><h6>SHIPPING ADDRESS</h6><br>
+                              <div class="row">
+                                 <div class="col-md-6 col-xs-12">
+                                    <div class="form-group">
+                                       <input type="text" placeholder="First Name *" class="placeholder-fix form-control" name="f_name">
+                                    </div>
+                                    <div class="form-group">
+                                       <input type="email" placeholder="E-mail Address *" class="placeholder-fix form-control" name="email">
+                                    </div>
+                                    <div class="row">
+                                       <div class="required form-group col-xs-12">
+                                          <select class="form-control s-styled hasCustomSelect" name="billing-country" style="appearance: menulist-button; position: absolute; opacity: 0; height: 43px; font-size: 13px;">
+                                             <option selected="" hidden="">Country</option>
+                                             <option value="1">01</option>
+                                             <option value="2">02</option>
+                                             <option value="3">03</option>
+                                             <option value="4">04</option>
+                                             <option value="5">05</option>
+                                             <option value="6">06</option>
+                                             <option value="7">07</option>
+                                             <option value="8">08</option>
+                                             <option value="9">09</option>
+                                             <option value="10">10</option>
+                                             <option value="11">11</option>
+                                             <option value="12">12</option>
+                                             <option value="13">13</option>
+                                             <option value="14">14</option>
+                                             <option value="15">15</option>
+                                             <option value="16">16</option>
+                                             <option value="17">17</option>
+                                             <option value="18">18</option>
+                                             <option value="19">19</option>
+                                             <option value="20">20</option>
+                                             <option value="21">21</option>
+                                             <option value="22">22</option>
+                                             <option value="23">23</option>
+                                             <option value="24">24</option>
+                                             <option value="25">25</option>
+                                             <option value="26">26</option>
+                                             <option value="27">27</option>
+                                             <option value="28">28</option>
+                                             <option value="29">29</option>
+                                             <option value="30">30</option>
+                                             <option value="31">31</option>
+                                          </select><span class="customSelect form-control s-styled hasCustomSelect" style="display: inline-block;"><span class="customSelectInner" style="width: 100%; display: inline-block;">Country</span></span>
+                                       </div>
+                                    </div>
+                                    <div class="form-group">
+                                       <input type="text" placeholder="State / Province * " class="placeholder-fix form-control" name="state">
+                                    </div>
+                                 </div>
+                                 <div class="col-md-6 col-xs-12">
+                                    <div class="form-group">
+                                       <input type="text" placeholder="Last Name *" class="placeholder-fix form-control" name="l_name">
+                                    </div>
+                                    <div class="form-group">
+                                       <input type="text" placeholder="Company " class="placeholder-fix form-control" name="company">
+                                    </div>
+                                    <div class="form-group">
+                                       <input type="text" placeholder="Town / City * " class="placeholder-fix form-control" name="city">
+                                    </div>
+                                    <div class="form-group">
+                                       <input type="text" placeholder="Postcode / Zip * " class="placeholder-fix form-control" name="zip_code">
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="accordion-group panel">
+                  <a href="https://shop.azelab.com/checkout.html?checkbox=3#collapse-3" data-parent="#accordion-order" data-toggle="collapse" class="accordion-header collapsed">
+                     SHIPPING METHOD
+                  </a>
+                  <div class="collapse" id="collapse-3" style="height: 0px;">
+                     <div class="accordion-body">
+                        <div class="row">
+                           <div class="col-xs-12">
+                              <div class="form-group radio">
+                                 <input type="radio" class="stl" name="shipping_method" id="airplane" value="Airplane">
+                                 <label for="airplane" class="stl"><span><span></span></span>Airplane</label>
+                                 <p class="caption">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque diam sem, hendrerit ut faubus sit amet, bibendum vel lacus. Nunc molestie magna sed sapien ornare tempus. vipsum nectac ligula placerat sollicitudin. Curabitur sit amet magna quam. Praesent in libero vel turpis pellentesque egestas sit amet vel nunc lobortis dui neque, quis accumsan dolor. Aenean aliquet dignissim semper maecenas ullamcorper.</p>
+                              </div>
+                              <div class="form-group radio">
+                                 <input type="radio" class="stl" name="shipping_method" id="transport" value="Transport">
+                                 <label for="transport" class="stl"><span><span></span></span>Transport</label>
+                                 <p class="caption">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque diam sem, hendrerit ut faubus sit amet, bibendum vel lacus. Nunc molestie magna sed sapien ornare tempus. vipsum nectac ligula placerat sollicitudin. Curabitur sit amet magna quam. Praesent in libero vel turpis pellentesque egestas sit amet vel nunc lobortis dui neque, quis accumsan dolor. Aenean aliquet dignissim semper maecenas ullamcorper.</p>
+                              </div>
+                              <div class="form-group radio">
+                                 <input type="radio" class="stl" name="shipping_method" id="train" value="Train">
+                                 <label for="train" class="stl"><span><span></span></span>Train</label>
+                                 <p class="caption">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque diam sem, hendrerit ut faubus sit amet, bibendum vel lacus. Nunc molestie magna sed sapien ornare tempus. vipsum nectac ligula placerat sollicitudin. Curabitur sit amet magna quam. Praesent in libero vel turpis pellentesque egestas sit amet vel nunc lobortis dui neque, quis accumsan dolor. Aenean aliquet dignissim semper maecenas ullamcorper.</p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="accordion-group panel">
+                  <a href="https://shop.azelab.com/checkout.html?checkbox=3#collapse-4" data-parent="#accordion-order" data-toggle="collapse" class="accordion-header">
+                     PAYMENT METHOD
+                  </a>
+                  <div class="collapse in" id="collapse-4" style="">
+                     <div class="accordion-body">
+                        <div class="row">
+                           <div class="col-xs-12">
+                              <div class="form-group radio">
+                                 <input type="radio" class="stl" name="payment_method" id="transfer" value="transfer">
+                                 <label for="transfer" class="stl"><span><span></span></span>Direct Bank Transfer</label>
+                                 <p class="caption">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque diam sem, hendrerit ut faubus sit amet, bibendum vel lacus. Nunc molestie magna sed sapien ornare tempus. vipsum nectac ligula placerat sollicitudin. Curabitur sit amet magna quam. Praesent in libero vel turpis pellentesque egestas sit amet vel nunc lobortis dui neque, quis accumsan dolor. Aenean aliquet dignissim semper maecenas ullamcorper.</p>
+                              </div>
+                              <div class="form-group radio">
+                                 <input type="radio" class="stl" name="payment_method" id="cheque" value="Cheque">
+                                 <label for="cheque" class="stl"><span><span></span></span>Cheque payment</label>
+                                 <p class="caption">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque diam sem, hendrerit ut faubus sit amet, bibendum vel lacus. Nunc molestie magna sed sapien ornare tempus. vipsum nectac ligula placerat sollicitudin. Curabitur sit amet magna quam. Praesent in libero vel turpis pellentesque egestas sit amet vel nunc lobortis dui neque, quis accumsan dolor. Aenean aliquet dignissim semper maecenas ullamcorper.</p>
+                              </div>
+                              <div class="form-group radio">
+                                 <input type="radio" class="stl" name="payment_method" id="PayPal" value="PayPal">
+                                 <label for="PayPal" class="stl"><span><span></span></span>PayPal <img src="./Checkout _ Shop+ - Responsive HTML5 Multipurpose Ecommerce Template_files/paypal_icon.jpg" alt="paypal"></label>
+                                 <p class="caption">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque diam sem, hendrerit ut faubus sit amet, bibendum vel lacus. Nunc molestie magna sed sapien ornare tempus. vipsum nectac ligula placerat sollicitudin. Curabitur sit amet magna quam. Praesent in libero vel turpis pellentesque egestas sit amet vel nunc lobortis dui neque, quis accumsan dolor. Aenean aliquet dignissim semper maecenas ullamcorper.</p>
+                              </div>
+                           </div>
+                        </div>
+                        <br>
+                        <div class="row big-button">
+                           <div class="col-xs-12 clearfix">
+    path:'orderplaced'
+                              <button class="btn btn-lg btn-third-col" (click)="orderPlaced()" >PLACE ORDER</button>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-xs-12">
+                  <h6 class="accordion-h6">ORDER NOTES</h6>
+                  <div class="required form-group">
+                     <textarea rows="3" class="form-control placeholder-fix" placeholder="Notes about your order"></textarea>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div> <!-- pg-body -->

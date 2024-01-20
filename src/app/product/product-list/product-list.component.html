@@ -1,0 +1,66 @@
+<!-- <div class="product-list">
+   <div *ngFor="let product of searchResults" class="product-card">
+     <img [src]="product.variations[0]?.images[0]?.url" alt="{{ product.name }}">
+     <div class="product-details">
+       <h3>{{ product.name }}</h3>
+       <p>{{ product.description }}</p>
+       <p>Price: ${{ product.price.toFixed(2) }}</p>
+       <button>Add to Cart</button>
+     </div>
+   </div>
+ </div> -->
+
+ <div class="container">
+  <div class="gap-50"></div>
+  <div class="text-center">
+     <ul class="product-categories moving-hover-line" role="tablist">
+        <li class="active"><a href="#pl-new-products" role="tab" data-toggle="tab">New Products</a></li>
+        <li><a href="#pl-featured" role="tab" data-toggle="tab">Featured</a></li>
+        <li><a href="#pl-special" role="tab" data-toggle="tab">Special</a></li>
+        <li><a href="#pl-bestsellers" role="tab" data-toggle="tab">Bestsellers</a></li>
+        <li class="hover-line"></li>
+     </ul>
+  </div>
+  <div class="tab-content tab-no-style">
+     <div class="tab-pane fade in active" id="pl-new-products">
+        <div class="products-list pl-carousel">
+           <div class="pl-controls">
+              <a href="#" class="pl-ctl-left"></a>
+              <a href="#" class="pl-ctl-right"></a>
+           </div>
+           <ul class="pl-pages">
+              <li class="active">
+                 <div class="row">
+                    <div class="col-md-3 col-sm-6 pl-item" *ngFor="let product of searchResults">
+                       <figure>
+                          <a [routerLink]="[product._id]">
+                             <img [src]="product.image || 'https://shop.azelab.com/images/products/thumbs/1.jpg'" alt="">
+                          </a>
+                          <label class="pl-badge">NEW</label>
+                          <figcaption>
+                             <a href="#" class="pl-button pl-addcart" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="icon-bag"></i></a>
+                             <a href="#" class="pl-button pl-qview" data-toggle="tooltip" data-placement="top" title="Quick View"><i class="icon-eye"></i></a>
+                             <a href="#" class="pl-button pl-compare" data-toggle="tooltip" data-placement="top" title="Compare"><i class="arrow_left-right_alt"></i></a>
+                             <a href="#" class="pl-button pl-wishlist" data-toggle="tooltip" data-placement="top" title="Add To Wish List"><i class="icon-heart"></i></a>
+                          </figcaption>
+                       </figure>
+                       <div class="pl-caption">
+                          <p class="pl-price-block">
+                             <span class="pl-price-old">${{product?.mrp || 950.00}}</span>
+                             <span class="pl-price"> ${{(product?.price || product?.discountPrice)?.toFixed(2)}}</span>
+                          </p>
+                          <p class="pl-name">{{product.name}}</p>
+                          <span class="stars-rating stars-4"><span class="stars"></span></span>
+                       </div>
+                    </div>
+                 </div>
+              </li>
+           </ul>
+           <div class="pl-controls plc-bottom">
+              <a href="#" class="pl-ctl-left"></a>
+              <a href="#" class="pl-ctl-right"></a>
+           </div>
+        </div>
+     </div>
+  </div>
+</div>

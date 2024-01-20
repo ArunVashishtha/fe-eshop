@@ -1,0 +1,25 @@
+<!-- search.component.html -->
+   <form [formGroup]="searchForm">
+     <div class="required form-group">
+       <input type="text" formControlName="query" placeholder="Search" class="placeholder-fix top-search"
+         autocomplete="off" (focus)="onSearchFocus()">
+       <button type="button" (click)="toggleSearchResults()"><i class="icon_search field-icon"></i></button>
+     </div>
+     <!-- Display Search Results as a dropdown -->
+     <div *ngIf="showSearchResults" class="search-results">
+       <ul class="result-list">
+         <li *ngFor="let result of searchResults" (click)="selectResult(result)">
+           {{ result.name }}
+         </li>
+        <li class="separator" *ngIf="categories.size">Categories</li>
+        <li *ngFor="let result of categories" (click)="selectCategory(result)">
+          {{ result }}
+        </li>
+        <li class="separator" *ngIf="subcategories.size">Subcategories</li>
+        <li *ngFor="let result of subcategories" (click)="selectCategory(result)">
+          {{ result }}
+        </li>
+       </ul>
+     </div>
+   </form>
+ 

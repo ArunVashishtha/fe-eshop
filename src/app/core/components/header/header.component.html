@@ -1,0 +1,227 @@
+<!-- top bar begin -->
+<div id="top-bar">
+  <div class="container">
+    <div class="pull-left left-top-bar">
+      <div id="lang">
+        <ul class="list-inline hidden-xs">
+          <li>
+            <a href="#" class="active">English</a>
+          </li>
+          <li>
+            <a href="#">French</a>
+          </li>
+          <li>
+            <span></span>
+          </li>
+        </ul>
+        <div class="dropdown dropdown-top-list visible-xs">
+          <a href="#" data-toggle="dropdown" title="">
+            English <span class="caret"></span>
+          </a>
+          <div class="dropdown-menu dropdown-top-menu">
+            <span class="dropdown-triangle-up"></span>
+            <ul class="dropdown-top-menu-list">
+              <li><a href="#">French</a></li>
+              <li><a href="#">German</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="currencies">
+        <ul class="list-inline hidden-xs">
+          <li>
+            <a href="#" class="active">USD</a>
+          </li>
+          <li>
+            <a href="#">EUR</a>
+          </li>
+        </ul>
+        <div class="dropdown dropdown-top-list visible-xs">
+          <a href="#" data-toggle="dropdown" title="">
+            USD <span class="caret"></span>
+          </a>
+          <div class="dropdown-menu dropdown-top-menu">
+            <span class="dropdown-triangle-up"></span>
+            <ul class="dropdown-top-menu-list">
+              <li><a href="#">EUR</a></li>
+              <li><a href="#">AUD</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="top-contacts">
+        <ul class="list-inline">
+          <li class="hidden-xs">
+            <i class="icon-call-in"></i>
+            <span>+ 1 (800) 2364 332 23 16</span>
+          </li>
+          <li class="hidden-xs">
+            <a href="your@email.com">
+              <i class="icon-envelope"></i>
+              <span class="hidden-xs">your@email.com</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="pull-right">
+      <div id="user-top-bar">
+        <ul class="list-inline">
+          <li class="btn-group">
+            <a href="#" class="pm_item visible-xs">
+              <i class="icon-bag"></i> (2)
+            </a>
+          </li>
+          <li class="btn-group dropdown" *ngIf="!isLoggedIn">
+            <a routerLink="/auth" class="pm_item" data-toggle="dropdown" title="login">
+              <i class="icon-login"></i>
+              <span class="hidden-sm hidden-xs">Login</span>
+            </a>
+          </li>
+          <li class="btn-group dropdown" *ngIf="isLoggedIn && profileData">
+            <a class="pm_item" data-toggle="dropdown">
+              <i class="icon-login"></i>
+              <span class="hidden-sm hidden-xs">{{profileData.firstName || profileData.email}}</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right profile" role="menu">
+              <span class="dropdown-triangle-up"></span>
+              <a class="pm_item" data-toggle="dropdown" (click)="logout()">
+                <i class="icon-login"></i>
+                <span class="hidden-sm hidden-xs">Logout</span>
+              </a>
+              <!-- <a href="#" class="dd-close-btn"><i class="icon_close"></i></a>
+              <div class="dropdown-head">
+                <h4 class="pull-left">Sign in</h4>
+              </div> -->
+              <!-- <app-login></app-login> -->
+            </div>
+          </li>
+          <li class="btn-group hidden-xs dropdown">
+            <a href="#" class="pm_item" data-toggle="dropdown" title="Wishlist">
+              <i class="icon-heart"></i>
+              <span class="hidden-sm">Wishlist</span> (<span class="dd-products-count">2</span>)
+            </a>
+            <div class="dropdown-menu dropdown-menu-right larger" role="menu" title="Compare Products">
+              <span class="dropdown-triangle-up"></span>
+              <a href="#" class="dd-close-btn"><i class="icon_close"></i></a>
+              <div class="dropdown-head">
+                <h4 class="pull-left">My Wishlist</h4>
+              </div>
+              <div class="dd-wrapper">
+                <div class="dd-list-empty">There is no product in whishlist!</div>
+                <div id="wishlist-product-group" class="dropdown-product-list">
+                  <div class="dd-product-group" id="pr1">
+                    <div class="dd-product-box pull-left">
+                      <a href="#" title="product name">
+                        <img src="https://shop.azelab.com/images/pr_2-small.jpg" alt="product name">
+                      </a>
+                    </div>
+                    <div class="dd-product-desc pull-left">
+                      <a class="title">Beautiful Fit Velvet Sweater For Him</a>
+                      <div class="qty">1 x <span class="active">$700.00</span></div>
+                      <button type="button" class="btn btn-sm btn-third-col">Add to Cart</button>
+                      <a href="#" class="close-btn ddr"><i class="icon_close"></i></a>
+                    </div>
+                  </div>
+                  <div class="dd-product-group" id="pr2">
+                    <div class="dd-product-box pull-left">
+                      <a href="#" title="product name">
+                        <img src="https://shop.azelab.com/images/pr_3-small.jpg" alt="product name">
+                      </a>
+                    </div>
+                    <div class="dd-product-desc pull-left">
+                      <a class="title">Beautiful Fit Velvet Sweater For Her</a>
+                      <div class="qty">1 x <span class="active">$800.00</span></div>
+                      <button type="button" class="btn btn-sm btn-third-col">Add to Cart</button>
+                      <a href="#" class="close-btn ddr"><i class="icon_close"></i></a>
+                    </div>
+                  </div>
+                  <div class="text-center clear-all-btn">
+                    <a href="#" class="close-btn"><i class="icon_close"></i><span>Clear all</span></a>
+                  </div>
+                </div>
+                <a href="wishlist.html" class="btn btn-md btn-third-col btn-w100">Go to Wishlist</a>
+              </div>
+            </div>
+          </li>
+          <li class="btn-group hidden-xs dropdown">
+            <a href="#" class="pm_item" data-toggle="dropdown">
+              <i class="icon-shuffle"></i>
+              <span class="hidden-sm">Compare</span> (<span class="dd-products-count">2</span>)
+            </a>
+            <div class="dropdown-menu dropdown-menu-right larger" role="menu">
+              <span class="dropdown-triangle-up"></span>
+              <a href="#" class="dd-close-btn"><i class="icon_close"></i></a>
+              <div class="dropdown-head">
+                <h4 class="pull-left">Compare List</h4>
+              </div>
+              <div class="dd-wrapper">
+                <div class="dd-list-empty">There is no product to compare!</div>
+                <div id="compare-product-group" class="dropdown-product-list">
+                  <div class="dd-product-group" id="pr3">
+                    <div class="dd-product-box pull-left">
+                      <a href="#" title="product name">
+                        <img src="https://shop.azelab.com/images/pr_2-small.jpg" alt="product name">
+                      </a>
+                    </div>
+                    <div class="dd-product-desc pull-left">
+                      <a class="title">Beautiful Fit Velvet Sweater For Him</a>
+                      <div class="qty">1 x <span class="active">$700.00</span></div>
+                      <button type="button" class="btn btn-sm btn-third-col">Add to Cart</button>
+                      <a href="#" class="close-btn ddr"><i class="icon_close"></i></a>
+                    </div>
+                  </div>
+                  <div class="dd-product-group" id="pr4">
+                    <div class="dd-product-box pull-left">
+                      <a href="#" title="product name">
+                        <img src="https://shop.azelab.com/images/pr_3-small.jpg" alt="product name">
+                      </a>
+                    </div>
+                    <div class="dd-product-desc pull-left">
+                      <a class="title">Beautiful Fit Velvet Sweater For Here</a>
+                      <div class="qty">1 x <span class="active">$800.00</span></div>
+                      <button type="button" class="btn btn-sm btn-third-col">Add to Cart</button>
+                      <a href="#" class="close-btn ddr"><i class="icon_close"></i></a>
+                    </div>
+                  </div>
+                  <div class="text-center clear-all-btn">
+                    <a id="clear-compare-products" class="close-btn"><i class="icon_close"></i><span>Clear
+                        all</span></a>
+                  </div>
+                </div>
+                <a href="compare.html" class="btn btn-md btn-third-col btn-w100">Go to Comparision List</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- top bar end -->
+<!-- header bar begin -->
+<div id="header-bar">
+  <div class="container">
+    <div class="row">
+      <div id="header-logo" class="col-md-6 col-sm-12">
+        <a href="#">
+          <img src="https://shop.azelab.com/images/logo.svg" class="logo hidden-xs"
+            alt="Shop+ - Responsive HTML5 Multipurpose Ecommerce Template">
+          <img src="https://shop.azelab.com/images/logo.svg" class="logo center-block visible-xs hidden-sm"
+            alt="Shop+ - Responsive HTML5 Multipurpose Ecommerce Template">
+        </a>
+      </div>
+      
+      <div class="col-md-3 top-search-box hidden-sm hidden-xs">
+        <app-search></app-search>
+      </div>
+      <div class="col-md-3 hidden-sm hidden-xs">
+        <div id="shopping-cart-wrapper" class="dropdown">
+          <app-cart-item></app-cart-item>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- header bar end -->

@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #dde5f4;
+}
+
+.dd-wrapper {
+    border: 1px solid burlywood;
+    border-radius: 20px;
+    background-color: white;
+    max-width: 305px;
+}
+
+.gender {
+    display: flex;
+    gap: 20px;
+    label {
+        top: -2px;
+        position: relative;
+        margin-bottom: 0px;
+    }
+}

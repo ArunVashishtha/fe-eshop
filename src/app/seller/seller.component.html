@@ -1,0 +1,31 @@
+<!-- product-list.component.html -->
+<button routerLink="/seller/seller-add-product">Add a product</button>
+<div class="table-container">
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Images</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products">
+      <td>{{ product.name }}</td>
+      <td>{{ product.description }}</td>
+      <td>{{ product.mrp | currency: 'USD' }}</td>
+      <td>
+        <div *ngFor="let variation of product.variations">
+          <img *ngIf="variation.images && variation.images.length > 0" [src]="variation.images[0].url" alt="{{ variation.images[0].altText }}" height="50" />
+        </div>
+      </td>
+      <td>
+        <button routerLink="/seller/seller-update-product/{{product._id}}">Edit</button>
+        <button (click)="confirmDelete(product._id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
