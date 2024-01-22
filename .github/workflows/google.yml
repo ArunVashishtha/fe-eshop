@@ -1,0 +1,66 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+env:
+  PROJECT_ID: eshop-411406
+  GCR_HOSTNAME: gcr.io
+  CLUSTER_NAME: cluster-1
+  CLUSTER_ZONE: us-central1-a
+  FRONTEND_DEPLOYMENT: fe-eshop-deployment
+  FRONTEND_IMAGE: fe-eshop
+  FRONTEND_CONTAINER: fe-eshop
+
+jobs:
+  setup-build:
+    name: Set up, Build and Push Images on GCR
+    runs-on: ubuntu-latest
+
+    # Map a step output to a job output
+    outputs:
+      hash: ${{ steps.git_commit_hash.outputs.hash }}
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Get git commit hash
+      id: git_commit_hash
+      run: echo "hash=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+
+    - name: Set up cloud SDK
+      uses: google-github-actions/setup-gcloud@v0.2.1
+      with:
+        service_account_key: ${{ secrets.GCP_CREDENTIALS }}
+        project_id: ${{ env.PROJECT_ID }}
+        export_default_credentials: true
+
+    - name: Configure Docker to use the gcloud command-line tool as a credential helper
+      run: |
+        gcloud --quiet auth configure-docker ${{ env.GCR_HOSTNAME }}
+
+    - name: Building front-end application image
+      run: docker build -t ${{ env.GCR_HOSTNAME }}/${{ env.PROJECT_ID }}/${{ env.FRONTEND_IMAGE }}:latest -t ${{ env.GCR_HOSTNAME }}/${{ env.PROJECT_ID }}/${{ env.FRONTEND_IMAGE }}:${{ steps.git_commit_hash.outputs.hash }} .
+
+    - name: Push FRONTEND_IMAGE
+      run: |
+        docker push ${{ env.GCR_HOSTNAME }}/${{ env.PROJECT_ID }}/${{ env.FRONTEND_IMAGE }}:${{ steps.git_commit_hash.outputs.hash }}
+        docker push ${{ env.GCR_HOSTNAME }}/${{ env.PROJECT_ID }}/${{ env.FRONTEND_IMAGE }}:latest
+    
+    - name: Set up GKE credentials
+      uses: google-github-actions/get-gke-credentials@v2
+      with:
+        cluster_name: ${{ env.CLUSTER_NAME }}
+        location: ${{ env.CLUSTER_ZONE }}
+    
+    - name: Deploy
+      run: |
+        kubectl apply -f ng-deployment.yaml
+        kubectl set image deployment/${{ env.FRONTEND_DEPLOYMENT }} ${{ env.FRONTEND_CONTAINER }}=${{ env.GCR_HOSTNAME }}/${{ env.PROJECT_ID }}/${{ env.FRONTEND_IMAGE }}:${{ steps.git_commit_hash.outputs.hash }}
+  
