@@ -13,7 +13,7 @@ import { CartService } from 'src/app/shared/cart.service';
 })
 export class ProductDetailComponent implements OnInit {
   productId: string | null = null;
-  product: Product | null = null; // Define the product type
+  product: Product | any; // Define the product type
   cartItems: Product[] = [];
   @Output() addToCartCountUpdate = new EventEmitter<Product[]>();
   constructor(

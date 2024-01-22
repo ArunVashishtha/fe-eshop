@@ -34,7 +34,7 @@
                     <div class="col-md-3 col-sm-6 pl-item" *ngFor="let product of searchResults">
                        <figure>
                           <a [routerLink]="[product._id]">
-                             <img [src]="product.image || 'https://shop.azelab.com/images/products/thumbs/1.jpg'" alt="">
+                             <img [src]="product.variations[0].images[0].url || 'https://shop.azelab.com/images/products/thumbs/1.jpg'" alt="">
                           </a>
                           <label class="pl-badge">NEW</label>
                           <figcaption>
