@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  baseUrl: 'http://35.208.126.2:3000/api/',
+  baseUrl: 'http://34.36.101.92:3000/api/',
   authUrl: 'auth/',
   catalogueUrl: 'products/',
   categoriesUrl: 'categories/',
