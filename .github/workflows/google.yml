@@ -11,7 +11,7 @@ on:
 env:
   PROJECT_ID: eshop-411406
   GCR_HOSTNAME: gcr.io
-  CLUSTER_NAME: auto-cluster-1
+  CLUSTER_NAME: autopilot-cluster-1
   CLUSTER_ZONE: us-central1
   FRONTEND_DEPLOYMENT: fe-eshop-deployment
   FRONTEND_IMAGE: fe-eshop
