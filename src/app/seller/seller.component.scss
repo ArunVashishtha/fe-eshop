@@ -41,6 +41,7 @@ form {
 
 .table-container {
   background-color: white;
+  padding: 20px;
   margin: 20px auto; /* Set margin to auto to center the table */
 }
 
@@ -78,4 +79,7 @@ th {
 
 .action-button:hover {
   background-color: #0056b3;
+}
+.button-align {
+  text-align: center;margin: 25px;
 }

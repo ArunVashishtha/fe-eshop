@@ -5,6 +5,8 @@ import { ProductService } from '../services/product.service';
 import { Product } from '../models/Product.model';
 import { Location } from '@angular/common';
 import { CartService } from 'src/app/shared/cart.service';
+import { AuthService } from 'src/app/core/services/auth.service';
+import { ProfileData } from 'src/app/core/models/auth-models';
 
 @Component({
   selector: 'app-product-detail',
@@ -16,14 +18,21 @@ export class ProductDetailComponent implements OnInit {
   product: Product | any; // Define the product type
   cartItems: Product[] = [];
   @Output() addToCartCountUpdate = new EventEmitter<Product[]>();
+  userId = "";
+  profileData!: ProfileData | null;
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
     private location: Location,
-    private cartService: CartService
+    private cartService: CartService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
+    this.authService.profileData.subscribe(res => {
+      this.profileData = res;
+      this.userId = this.profileData?._id || "";
+    });
     this.route.paramMap.subscribe(params => {
       this.productId = params.get('id');
       // Load product details based on productId
@@ -32,7 +41,7 @@ export class ProductDetailComponent implements OnInit {
   }
 
   addToCart(product: any) {
-    this.cartService.addToCart(product);
+    this.cartService.addToCart(product, this.userId);
   }
 
   incrementCartItem(item: any) {
@@ -49,7 +58,7 @@ export class ProductDetailComponent implements OnInit {
 
   updateCartOnServer() {
     console.log("items", this.cartItems)
-    this.cartService.addToCart(this.cartItems);
+    this.cartService.addToCart(this.cartItems, this.userId);
   }
 
   loadProductDetails(): void {

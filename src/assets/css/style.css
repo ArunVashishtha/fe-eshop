@@ -1753,7 +1753,7 @@ h6.account-table-head { margin-top: 0; border-bottom: 1px solid #d7d9db; padding
   #order-detail-content #cart_summary tfoot tr .text-right, #order-detail-content #cart_summary tfoot tr .price { display: block; float: left; width: 100%; }
   #order-detail-content .table { border-bottom: none; } }
 #order-detail-content .table > thead > tr > th { background: none repeat scroll 0 0 #ebebeb; border-bottom-width: 1px; border-color: #ebebeb; vertical-align: middle; color: #212224; font-size: 13px; font-family: HelveticaNeue, Arial, Helvetica, sans-serif; text-transform: uppercase; text-align: center; height: 46px; line-height: 46px; padding: 0; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
-#order-detail-content .product-name { color: #212224; font-size: 14px; font-weight: 600; line-height: 23px; margin-bottom: 0; height: 35px; margin-bottom: 15px; }
+#order-detail-content .product-name { color: #212224; font-size: 14px; font-weight: 600; line-height: 23px; margin-bottom: 0; margin-bottom: 15px; }
 #order-detail-content .product-name a { color: #212224; line-height: 23px; }
 #order-detail-content .product-name a:hover { color: #dccc99; }
 #order-detail-content .table .price, #order-detail-content .subtotal p { color: #000; font-weight: 600; white-space: nowrap; }

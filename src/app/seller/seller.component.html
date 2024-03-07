@@ -1,5 +1,8 @@
 <!-- product-list.component.html -->
+<div class="button-align">
 <button routerLink="/seller/seller-add-product">Add a product</button>
+<button routerLink="/">Back to dashboard</button>
+</div>
 <div class="table-container">
 <table class="table">
   <thead>
@@ -15,7 +18,7 @@
     <tr *ngFor="let product of products">
       <td>{{ product.name }}</td>
       <td>{{ product.description }}</td>
-      <td>{{ product.mrp | currency: 'USD' }}</td>
+      <td>{{ product.mrp | currency: 'INR' }}</td>
       <td>
         <div *ngFor="let variation of product.variations">
           <img *ngIf="variation.images && variation.images.length > 0" [src]="variation.images[0].url" alt="{{ variation.images[0].altText }}" height="50" />
