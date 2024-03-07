@@ -4,7 +4,7 @@
      <div class="product-details">
        <h3>{{ product.name }}</h3>
        <p>{{ product.description }}</p>
-       <p>Price: ${{ product.price.toFixed(2) }}</p>
+       <p>Price: Rs. {{ product.price.toFixed(2) }}</p>
        <button>Add to Cart</button>
      </div>
    </div>
@@ -38,16 +38,16 @@
                           </a>
                           <label class="pl-badge">NEW</label>
                           <figcaption>
-                             <a href="#" class="pl-button pl-addcart" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="icon-bag"></i></a>
-                             <a href="#" class="pl-button pl-qview" data-toggle="tooltip" data-placement="top" title="Quick View"><i class="icon-eye"></i></a>
+                           <a href="#" class="pl-button pl-addcart" data-toggle="tooltip" data-placement="top" title="Add To Cart" (click)="addToCart(product)"><i class="icon-bag"></i></a>
+                            <a href="#" class="pl-button pl-qview" data-toggle="tooltip" data-placement="top" title="Quick View"><i class="icon-eye"></i></a>
                              <a href="#" class="pl-button pl-compare" data-toggle="tooltip" data-placement="top" title="Compare"><i class="arrow_left-right_alt"></i></a>
                              <a href="#" class="pl-button pl-wishlist" data-toggle="tooltip" data-placement="top" title="Add To Wish List"><i class="icon-heart"></i></a>
                           </figcaption>
                        </figure>
                        <div class="pl-caption">
                           <p class="pl-price-block">
-                             <span class="pl-price-old">${{product?.mrp || 950.00}}</span>
-                             <span class="pl-price"> ${{(product?.price || product?.discountPrice)?.toFixed(2)}}</span>
+                             <span class="pl-price-old">Rs. {{product?.mrp || 950.00}}</span>
+                             <span class="pl-price"> Rs. {{(product?.price || product?.discountPrice)?.toFixed(2)}}</span>
                           </p>
                           <p class="pl-name">{{product.name}}</p>
                           <span class="stars-rating stars-4"><span class="stars"></span></span>

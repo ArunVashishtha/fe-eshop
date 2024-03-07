@@ -18,6 +18,7 @@ export class ApiService {
   private _subCatgeoriesUrl = environment.subCategoriesUrl;
   private _searchUrl = environment.searchUrl;
   private _sellerURL = environment.sellerURL;
+  private _cartURL = environment.cartURL;
 
   constructor(private http: HttpClient) { }
   /** Auth Service */
@@ -47,4 +48,10 @@ export class ApiService {
     new RestService<any>(this.http, `${this._baseUrl}${this._sellerURL}/${sellerId}/${productId}`);
   deleteSellerProduct = (productId: string, sellerId: string) =>
     new RestService<any>(this.http, `${this._baseUrl}${this._sellerURL}/${sellerId}/${productId}`);
+  getCart = (userId: string) =>
+    new RestService<any>(this.http, `${this._baseUrl}${this._cartURL}/${userId}`);
+  updateCartItem = () =>
+    new RestService<any>(this.http, `${this._baseUrl}${this._cartURL}`);
+  removeCartItem = () =>
+   new RestService<any>(this.http, `${this._baseUrl}${this._cartURL}`);
 }

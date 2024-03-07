@@ -5,6 +5,7 @@ export interface ProfileData {
     lastName?: string;
     contactNumber?: string;
     gender?: string;
+    user_role: string;
 }
 
 export interface RegisterData {

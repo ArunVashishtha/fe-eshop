@@ -24,20 +24,19 @@
                      <tr class="cart_item first_item address_0 odd dd-product-group" *ngFor="let item of cartItems">
                         <td class="cart_product">
                            <a href="https://shop.azelab.com/product-page.html">
-                              <img alt="Faded Short Sleeve T-shirts" src="{{item.images}}">
+                              <img alt="Faded Short Sleeve T-shirts" src="{{item.variations[0].images[0].url}}">
                            </a>
                         </td>
                         <td class="cart_description">
                            <p class="product-name">
                               <a href="https://shop.azelab.com/product-page.html">{{item.name}}</a>
                            </p>
-                           <small>Size: <span>XL</span></small>
-                           <small>Color: <span>Red</span></small>
-                           <small>Product Code: <span>12658472</span></small>
+                           <small>Size: <span>{{item.variations[0].size}}</span></small>
+                           <small>Color: <span>{{item.variations[0].color}}</span></small>
                         </td>
                         <td data-title="PRICE" class="cart_unit">
-                           <span class="old-price">${{item.mrp}}</span>
-                           <span class="price">${{item.discountPrice}}</span>
+                           <span class="old-price">Rs. {{item.mrp}}</span>
+                           <span class="price">Rs. {{item.discountPrice}}</span>
                         </td>
 
                         <td data-title="QUANTITY" class="cart_quantity text-center">
@@ -46,15 +45,15 @@
                            </div>
                         </td>
                         <td class="subtotal text-center no-cls-btn" data-title="SUBTOTAL">
-                           <p>$ {{item.discountPrice * item.quantity}}</p>
+                           <p>Rs. {{item.discountPrice * item.quantity}}</p>
                         </td>
                      </tr>
                   </tbody>
                </table>
                <div class="container col-xs-12 tfoot">
-                  <p class="row info"><span class="pull-left col-xs-6">Cart Subtotal:</span><span class="pull-right col-xs-6 text-right">${{totals.totalAmount}}</span></p>
+                  <p class="row info"><span class="pull-left col-xs-6">Cart Subtotal:</span><span class="pull-right col-xs-6 text-right">Rs. {{totals.totalAmount}}</span></p>
                   <p class="row info"><span class="pull-left col-xs-6">Shipping:</span><span class="pull-right col-xs-6 text-right gray">Free Shipping</span></p>
-                  <p class="row info total"><span class="pull-left col-xs-6">ORDER TOTAL:</span><span class="col-xs-6 pull-right text-right">${{totals.totalAmount}}</span></p>
+                  <p class="row info total"><span class="pull-left col-xs-6">ORDER TOTAL:</span><span class="col-xs-6 pull-right text-right">Rs. {{totals.totalAmount}}</span></p>
                </div>
             </div>
          </div>

@@ -4,7 +4,7 @@
    </div>
    <div class="s-cart-pan">
      <div class="s-bag-2">
-       <span class="dd-products-count">{{totals.totalQuantity}}</span> item(s) / <span class="active dd-products-price">${{totals.totalAmount}}</span>
+       <span class="dd-products-count">{{totals.totalQuantity}}</span> item(s) / <span class="active dd-products-price">Rs. {{totals.totalAmount}}</span>
      </div>
    </div>
  </a>
@@ -20,18 +20,18 @@
        <div class="dd-product-group" id="pr5" *ngFor="let item of cartItems">
          <div class="dd-product-box pull-left">
            <a href="product-page.html" title="{{item.name}}">
-             <img src="{{item.image}}" alt="{{item.name}}">
+             <img src="{{item.variations[0].images[0].url}}" alt="{{item.name}}">
            </a>
          </div>
          <div class="dd-product-desc pull-left">
            <a class="title">{{item.name}}</a>
-           <div class="qty">{{item.quantity}} x <span class="active">${{item.discountPrice}}</span></div>
+           <div class="qty">{{item.quantity}} x <span class="active">Rs. {{item.discountPrice}}</span></div>
            <a href="#" class="close-btn ddr"><i class="icon_close"></i></a>
          </div>
        </div>
        <div class="text-center clear-all-btn">
          <span class="cart-block-subtotal">
-           Cart Subtotal: ${{totals.totalAmount}}
+           Cart Subtotal: Rs. {{totals.totalAmount}}
          </span>
        </div>
      </div>

@@ -7,12 +7,12 @@
       <div id="currencies">
         <ul class="list-inline hidden-xs">
           <li>
-            <a href="#" class="active">USD</a>
+            <a href="#" class="active">INR</a>
           </li>
         </ul>
         <div class="dropdown dropdown-top-list visible-xs">
           <a href="#" data-toggle="dropdown" title="">
-            USD <span class="caret"></span>
+            INR <span class="caret"></span>
           </a>
           <div class="dropdown-menu dropdown-top-menu">
             <span class="dropdown-triangle-up"></span>
@@ -68,6 +68,11 @@
               </div> -->
               <!-- <app-login></app-login> -->
             </div>
+          </li>
+          <li class="btn-group dropdown" *ngIf="isLoggedIn && profileData && profileData.user_role == 'seller'">
+            <a routerLink="/seller" class="pm_item" data-toggle="dropdown" title="Add product">
+              <span class="hidden-sm hidden-xs">Add products</span>
+            </a>
           </li>
           <!-- <li class="btn-group hidden-xs dropdown">
             <a href="#" class="pm_item" data-toggle="dropdown" title="Wishlist">
@@ -179,10 +184,10 @@
     <div class="row">
       <div id="header-logo" class="col-md-6 col-sm-12">
         <a href="#">
-          <img src="https://shop.azelab.com/images/logo.svg" class="logo hidden-xs"
-            alt="Shop+ - Responsive HTML5 Multipurpose Ecommerce Template">
-          <img src="https://shop.azelab.com/images/logo.svg" class="logo center-block visible-xs hidden-sm"
-            alt="Shop+ - Responsive HTML5 Multipurpose Ecommerce Template">
+          <img src="../../../../assets/logo.png" class="logo hidden-xs"
+            alt="Mcart">
+          <img src="../../../../assets/logo.png" class="logo center-block visible-xs hidden-sm"
+            alt="Mcart">
         </a>
       </div>
       

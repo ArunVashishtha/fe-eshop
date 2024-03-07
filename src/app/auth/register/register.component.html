@@ -35,6 +35,20 @@
           <ng-container [ngTemplateOutlet]="errorTemplate" [ngTemplateOutletContext]="{control: form.get('gender')}">
           </ng-container>
         </div>
+        <div class="required form-group">
+          <div class="role">
+            <div>
+              <input id="role_customer" type="radio" formControlName="user_role" value="customer" class="placeholder-fix">
+              <label for="role_customer">Customer</label>
+            </div>
+            <div>
+              <input id="role_seller" type="radio" formControlName="user_role" value="seller" class="placeholder-fix">
+              <label for="gender_seller">Seller</label>
+            </div>
+          </div>
+          <ng-container [ngTemplateOutlet]="errorTemplate" [ngTemplateOutletContext]="{control: form.get('gender')}">
+          </ng-container>
+        </div>
         <div class="form-group text-center">
           <button type="button" class="btn btn-sm btn-third-col" (click)="register()">Register</button>
         </div>
