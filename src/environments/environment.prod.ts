@@ -6,5 +6,6 @@ export const environment = {
   categoriesUrl: 'categories/',
   subCategoriesUrl: 'subcategories/',
   searchUrl: 'search',
-  sellerURL: 'seller'
+  sellerURL: 'seller',
+  cartURL: 'cart'
 };
