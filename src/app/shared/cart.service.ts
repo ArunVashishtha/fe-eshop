@@ -51,7 +51,7 @@ export class CartService {
   }
 
   // Method to clear all items from the cart
-  clearCart(userId:string): void {
+  clearCart(userId?:string): void {
     this.addToCartCountSubject.next([]);
   }
   // Method to apply a coupon

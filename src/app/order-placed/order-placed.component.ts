@@ -17,6 +17,7 @@ export class OrderPlacedComponent implements OnInit {
   ngOnInit(): void {
     this.cartItems = this.cartService.getCartItems();
     this.totals = this.calculateTotals();
+    this.cartService.clearCart();
   }
 
   calculateTotals(): { totalAmount: number, totalQuantity: number } {

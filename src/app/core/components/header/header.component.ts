@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ProfileData } from '../../models/auth-models';
 import { AuthService } from '../../services/auth.service';
+import { CartService } from 'src/app/shared/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,8 @@ export class HeaderComponent {
   profileData!: ProfileData | null;
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private cartService: CartService
   ) {
     this.authService.isAuthenticated.subscribe(res => {
       this.isLoggedIn = res;
@@ -24,6 +26,7 @@ export class HeaderComponent {
 
   logout() {
     this.authService.logout();
+    this.cartService.clearCart();
   }
   
   handleAddToCartCountUpdate($event:any) {
